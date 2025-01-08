@@ -15,12 +15,12 @@ class PhotoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 300,
+      width: 350,
       height: 210,
       child: Column(
         children: [
           Container(
-            width: 300,
+            width: 350,
             height: 210,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(15)),
