@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets/photo_card.dart';
 import 'widgets/custom_button.dart';
+import 'widgets/top_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -67,28 +68,28 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            // Ícone 1: Relatório
+            // Ícone 2: Relatório
             IconButton(
               icon: Icon(
                 Icons.bar_chart,
-                color: _selectedIndex == 0 ? Colors.white : Colors.grey,
-              ),
-              onPressed: () {
-                setState(() {
-                  _selectedIndex = 0;
-                });
-              },
-            ),
-            const SizedBox(width: 48), // Espaço para o botão central
-            // Ícone 2: Busca
-            IconButton(
-              icon: Icon(
-                Icons.search,
                 color: _selectedIndex == 2 ? Colors.white : Colors.grey,
               ),
               onPressed: () {
                 setState(() {
                   _selectedIndex = 2;
+                });
+              },
+            ),
+            const SizedBox(width: 48), // Espaço para o botão central
+            // Ícone 1: Busca
+            IconButton(
+              icon: Icon(
+                Icons.search,
+                color: _selectedIndex == 1 ? Colors.white : Colors.grey,
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = 1;
                 });
               },
             ),
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.black, // Cor de fundo do botão
         onPressed: () {
           setState(() {
-            _selectedIndex = 1; // Seleciona a página Home
+            _selectedIndex = 0; // Seleciona a página Home
           });
         },
         child: const Icon(Icons.home, color: Colors.yellow), // Ícone em amarelo
@@ -110,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Corpo da tela baseado no índice da BottomNavigationBar
   Widget _buildBody() {
-    if (_selectedIndex == 1) {
+    if (_selectedIndex == 0) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -184,6 +185,23 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
+      );
+    } else if (_selectedIndex == 1) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: TopBarWidget(), // Usa o widget personalizado como AppBar
+          body: Padding(
+            padding: EdgeInsets.only(left: 18, right: 18, top: 18),
+            child: Text(
+              'Busca',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
       );
     } else {
       return Center(
