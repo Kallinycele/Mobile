@@ -13,7 +13,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      shape: CircularNotchedRectangle(), 
+      shape: const CircularNotchedRectangle(), 
       notchMargin: 8.0,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,7 +23,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 color: currentIndex == 0 ? Colors.yellow : Colors.grey),
             onPressed: () => onTabSelected(0),
           ),
-          Spacer(),
+          const Spacer(),
           IconButton(
             icon: Icon(Icons.search,
                 color: currentIndex == 2 ? Colors.yellow : Colors.grey),

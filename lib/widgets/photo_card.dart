@@ -12,46 +12,56 @@ class PhotoCard extends StatelessWidget {
     required this.imagePath,
   }) : super(key: key);
 
-  
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 280,
-      height: 300,
+      width: 350,
+      height: 210,
       child: Column(
-          children: [
-            Image.asset(
-              imagePath,
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 250,
+        children: [
+          Container(
+            width: 350,
+            height: 210,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              image: DecorationImage(
+                image: AssetImage(imagePath),
+                fit: BoxFit.cover
+              ),
             ),
-            Positioned(
-              bottom: 20,
-              left: 20,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
                     date,
-                    style: TextStyle(
-                      color: Colors.black,
+                    style: const TextStyle(
+                      color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     "$photoCount fotos",
-                    style: TextStyle(
-                      color: Colors.black,
+                    style: const TextStyle(
+                      color: Colors.white,
                       fontSize: 16,
                     ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
-      );
+          ),
+          // Image.asset(
+          //   imagePath,
+          //   fit: BoxFit.cover,
+          //   width: double.infinity,
+          //   height: 250,
+          // ),
+        ],
+      ),
+    );
   }
 }
